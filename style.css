@@ -36,6 +36,7 @@ img {
     border: solid;
     border-radius: 10px;
     margin-inline: 20px;
+    transition: all .07s ease;
 }
 
 #results {
@@ -47,4 +48,12 @@ p {
     height: 150px;
     border: solid;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.clicked {
+    transform: scale(0.95);
 }
