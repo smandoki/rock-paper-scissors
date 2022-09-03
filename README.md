@@ -1,9 +1,8 @@
-# rock-paper-scissors
-
-Simple rock-paper-scissors game implemented with Javascript and run
-in the console.
+Rock-paper-scissors implemented with vanilla js.
 
 Skills demonstrated
+* HTML
+* CSS
 * Javascript
 
-Site link https://smandoki.github.io/rock-paper-scissors/
+Site Link https://smandoki.github.io/rock-paper-scissors/

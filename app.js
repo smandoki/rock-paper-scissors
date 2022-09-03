@@ -1,11 +1,10 @@
 const choice = {
-    0: 'Rock',
-    1: 'Paper',
-    2: 'Scissors',
-    'rock': 0,
-    'paper': 1,
-    'scissors': 2,
+    0: 'rock',
+    1: 'paper',
+    2: 'scissors'
 }
+
+const resultParagraph = document.querySelector('p');
 
 let wins = 0;
 let loss = 0;
@@ -32,23 +31,29 @@ function playRound(playerChoice, computerChoice){
     return `Draw! ${choice[playerChoice]} ties ${choice[computerChoice]}`;
 }
 
-function game(){
-    for (let i = 0; i < 5; i++){
-        const userInput = prompt('Enter rock, paper, or scissors').toLowerCase();
-        const playerChoice = choice[userInput];
+const choices = document.querySelectorAll('img');
+
+choices.forEach(choice => {
+    choice.addEventListener('click', (e) => {
+        e.target.classList.add('clicked');
+
+        const playerChoice = Number(e.target.id);
         const computerChoice = getComputerChoice();
-        console.log(playRound(playerChoice, computerChoice));
-    }
 
-    if (wins > loss) {
-        console.log('You Win!');
-    } else if (wins < loss){
-        console.log('You Lose!');
-    } else {
-        console.log('Draw!');
-    }
+        let result = playRound(playerChoice, computerChoice);
+        result += `\nPlayer: ${wins} | Computer: ${loss}`
 
-    console.log(`Player: ${wins}, Computer: ${loss}`);
-}
+        if (wins === 5 || loss === 5) {
+            result = wins === 5 ? `You Win! ${wins}-${loss}` : `Computer Wins ${loss}-${wins}`;
+            result += '\nPress rock, paper, or scissors to play a new game'
+            wins = 0;
+            loss = 0;
+        }
 
-game();
+        resultParagraph.innerText = result;
+    });
+
+    choice.addEventListener('transitionend', (e) => {
+        e.target.classList.remove('clicked');
+    });
+});
