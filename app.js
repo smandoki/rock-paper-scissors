@@ -1,7 +1,4 @@
 const choice = {
-    0: 'Rock',
-    1: 'Paper',
-    2: 'Scissors',
     'rock': 0,
     'paper': 1,
     'scissors': 2,
@@ -32,23 +29,3 @@ function playRound(playerChoice, computerChoice){
     return `Draw! ${choice[playerChoice]} ties ${choice[computerChoice]}`;
 }
 
-function game(){
-    for (let i = 0; i < 5; i++){
-        const userInput = prompt('Enter rock, paper, or scissors').toLowerCase();
-        const playerChoice = choice[userInput];
-        const computerChoice = getComputerChoice();
-        console.log(playRound(playerChoice, computerChoice));
-    }
-
-    if (wins > loss) {
-        console.log('You Win!');
-    } else if (wins < loss){
-        console.log('You Lose!');
-    } else {
-        console.log('Draw!');
-    }
-
-    console.log(`Player: ${wins}, Computer: ${loss}`);
-}
-
-game();
